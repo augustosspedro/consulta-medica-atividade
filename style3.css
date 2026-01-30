@@ -1,0 +1,334 @@
+/* 1. ESTILOS GERAIS E RESET DE NAVEGADOR */
+
+/* Define a fonte padrão, cores e o fundo com imagem para o corpo da página */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #3e4641; /* Cor escura para o texto */
+    background-color: #f4f7f6; /* Fundo cinza bem claro */
+    margin: 0;
+    line-height: 1.6; /* Espaçamento entre linhas para melhor leitura */
+    background: url('background3.png') no-repeat center center fixed; /* Define a imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+}
+
+/* O box-sizing é um reset importante que garante que o padding e a borda (border) não aumentem o tamanho total do elemento. É essencial para a responsividade. */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+/* 2. LAYOUT PRINCIPAL (HEADER E CONTEÚDO) */
+
+/* Estilo para a barra superior (cabeçalho) */
+header {
+    background-color: #227e67; /* Cor de fundo principal (verde) */
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between; /* Afasta o logo do título */
+    align-items: center;
+}
+
+.header-logo {
+    max-height: 40px; 
+    width: auto;
+    margin-right: 1.5rem; 
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+/* Contêiner principal para o conteúdo da página (Grid) */
+.container {
+    max-width: 1100px; /* Largura máxima do conteúdo */
+    margin: 2rem auto; /* Centraliza o contêiner na tela */
+    padding: 0 1rem; /* Espaçamento lateral interno */
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Divide o conteúdo em duas colunas (1/3 e 2/3) */
+    gap: 2rem; /* Espaço entre as colunas */
+}
+
+/* Estilo para as caixas de formulário e agenda */
+.form-container, .agenda-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra suave para efeito de "card" */
+}
+
+/* 3. COMPONENTES DE FORMULÁRIO (INPUTS) */
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    display: block; /* Faz o label ocupar uma linha inteira */
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Estilo para todos os campos de texto, senha, data e hora */
+.input-group input[type="text"],
+.input-group input[type="password"],
+.input-group input[type="date"],
+.input-group input[type="time"] {
+    width: 100%; /* Ocupa a largura total disponível */
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo para o campo de seleção desabilitado */
+select[disabled] {
+    background-color: #f1f1f1;
+    cursor: not-allowed;
+}
+
+/* 4. BOTÕES */
+
+.btn {
+    background-color: #227e67;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.2s; /* Animação suave ao passar o mouse */
+}
+
+.btn:hover {
+    background-color: #27a082;
+}
+
+/* Variações de cores para botões */
+.btn-success { background-color: #28a745; }
+.btn-success:hover { background-color: #218838; }
+
+.btn-warning { background-color: #ffc107; color: #212529; }
+.btn-warning:hover { background-color: #e0a800; }
+
+.btn-danger { background-color: #dc3545; }
+.btn-danger:hover { background-color: #c82333; }
+
+.btn-sm {
+    padding: 0.25rem 0.5rem; /* Botões menores */
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+/* 5. PÁGINA DE LOGIN */
+
+/* Contêiner que centraliza o formulário de login na tela */
+.login-container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; /* Ocupa a altura total da tela */
+    flex-direction: column; /* Coloca os elementos (logo e form) um abaixo do outro */
+    padding-bottom: 30px; 
+    padding: 0 1rem; /* Adiciona espaçamento nas laterais para telas pequenas (mobile) */
+}
+
+/* Estilo para a caixa do formulário de login */
+.login-container form {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Faz o botão de login ocupar 100% da largura do formulário */
+.login-container button {
+    width: 100%;
+}
+
+.logo-container {
+    text-align: center; 
+    margin-bottom: 1.5rem;
+    max-width: 400px;
+    width: 100%;
+}
+
+.logo-img {
+    max-width: 300px; 
+    height: auto;
+}
+
+.error-msg {
+    color: #dc3545;
+    text-align: center;
+    margin-top: 1rem;
+    display: none; 
+}
+
+/* 6. AGENDA (LISTA DE CONSULTAS E HORÁRIOS) */
+/* Lista sem marcadores */
+.consulta-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estilo de cada item/consulta na lista */
+.consulta-item {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+}
+
+.consulta-item .info {
+    flex-grow: 1;
+}
+
+.consulta-item .info strong {
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.consulta-item .info span {
+    display: block; 
+    color: #555;
+    font-style: italic;
+    margin-top: 4px;
+}
+
+/* Estilo dos marcadores de status */
+.consulta-item .status {
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-left: 1rem; 
+}
+
+.consulta-item .acoes {
+    margin-left: 1rem;
+}
+
+.status-pendente { color: #ffc107; border: 1px solid #ffc107; }
+.status-confirmada { color: #28a745; border: 1px solid #28a745; }
+.status-indisponivel { color: #dc3545; border: 1px solid #dc3545; text-decoration: line-through; }
+
+/* Mensagem de notificação */
+.notificacao {
+    display: none; 
+    background-color: #e6f7ff;
+    border: 1px solid #b3e0ff;
+    color: #005a9c;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* Contêiner da lista de horários (Formulário Cascata) */
+.horarios-list {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fcfcfc;
+}
+
+.horarios-list p {
+    margin: 0;
+    color: #777;
+    font-style: italic;
+}
+
+/* Estilo para cada opção de horário (radio button) */
+.horario-slot {
+    display: block;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.horario-slot:hover {
+    background-color: #f4f7f6;
+}
+
+.horario-slot input[type="radio"] {
+    margin-right: 0.5rem;
+    transform: scale(1.1);
+}
+
+.horario-slot label {
+    font-weight: normal;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Estilo para o slot de horário selecionado */
+.horario-slot input[type="radio"]:checked + label {
+    font-weight: 600;
+    color: #198b47;
+}
+
+/* Ações de administrador (Ex: Botão Limpar) */
+.admin-actions {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    text-align: right;
+}
+
+
+/* 7. RESPONSIVIDADE E FOOTER */
+footer {
+    position: fixed; /* Fixa o rodapé na tela */
+    bottom: 0; 
+    width: 100%; 
+    background-color: rgba(26, 112, 74, 0.7); /* Fundo semi-transparente */
+    color: #ffffff;
+    text-align: center;
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; 
+}
+
+footer p {
+    margin: 0; 
+}
+
+/* Ajustes para telas menores que 768px (Mobile) */
+@media (max-width: 768px) {
+    /* Altera o layout de duas colunas para uma única coluna */
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Na lista de consultas, coloca as informações em coluna */
+    .consulta-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .consulta-item .status,
+    .consulta-item .acoes {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+    
+    /* Reduz o espaçamento interno do formulário de login no mobile */
+    .login-container form {
+        padding: 1.5rem; 
+    }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med+ | Agenda de consultas </title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <header>
+        <img src="logo2.png" alt="Logo do Sistema" class="header-logo">
+        <h1>Painel do Médico</h1>
+        <button id="logout-btn" class="btn btn-danger">Sair</button>
+    </header>
+
+    <main class="container">
+        <div class="agenda-container" style="grid-column: span 2;">
+            <h3>Minhas Consultas Confirmadas</h3>
+            <p id="notificacao-medico" class="notificacao"></p>
+            <ul id="lista-consultas-medico" class="consulta-list">
+                </ul>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        setupMedico();
+    </script>
+</body>
+</html>

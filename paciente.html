@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med+ | Consultas </title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <header>
+        <img src="logo2.png" alt="Logo do Sistema" class="header-logo">
+        <h1 id="header-paciente">Painel do Paciente</h1>
+        <button id="logout-btn" class="btn btn-danger">Sair</button>
+    </header>
+
+    <main class="container">
+        <div class="form-container">
+            <h3>Solicitar Nova Consulta</h3>
+            <form id="form-solicitacao">
+                
+                <div class="input-group">
+                    <label for="especialidade">1. Escolha a Especialidade:</label>
+                    <select id="especialidade" required>
+                        <option value="">-- Selecione --</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="medico">2. Escolha o Médico:</label>
+                    <select id="medico" required disabled>
+                        <option value="">-- Aguardando especialidade --</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>3. Escolha o Horário Disponível:</label>
+                    <div id="horarios-container" class="horarios-list">
+                        <p>-- Aguardando médico --</p>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="motivo">4. Motivo da Consulta:</label>
+                    <input type="text" id="motivo" placeholder="Ex: Retorno, Dor de cabeça" required>
+                </div>
+
+                <button type="submit" class="btn">Enviar Solicitação</button>
+            </form>
+        </div>
+
+        <div class="agenda-container">
+            <h3>Minhas Solicitações</h3>
+            <ul id="lista-minhas-consultas" class="consulta-list">
+                </ul>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        setupPaciente();
+    </script>
+</body>
+</html>

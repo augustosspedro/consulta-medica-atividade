@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med+ | Login </title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-container">
+            <img src="logo2.png" alt="Logo Med+" class="logo-img">
+        </div>
+        <form id="login-form">
+            <h2>Faça seu login</h2>
+            <div class="input-group">
+                <label for="usuario">Usuário:</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Paciente, Secretário(a) ou Médico(a)" required>
+            </div>
+            <div class="input-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit" class="btn">Entrar</button>
+            <p id="login-error" class="error-msg"></p>
+        </form>
+    </div>
+    <footer>
+        <p>Desenvolvido por Pedro Augusto, Rian Lino, Ariane Silva, Djennifer Santos, Lucrécia França, Matheus Silva.</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        setupLogin();
+    </script>
+    
+    <script>
+        console.log(" CREDENCIAIS DE TESTE ");
+        console.table([
+            { Perfil: 'Paciente', Usuario: 'paciente', Senha: '789' },
+            { Perfil: 'Secretária', Usuario: 'secretaria', Senha: '123' },
+            { Perfil: 'Médico', Usuario: 'medico', Senha: '456' }
+        ]);
+
+    </script>
+</body>
+</html>
